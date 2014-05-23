@@ -11,23 +11,101 @@ public class Store {
         System.loadLibrary("store");
     }
 
-    public native int getInteger(String key)
-            throws NotExistingKeyException, InvalidTypeException;
-    public native void setInteger(String key, int value);
+    public native void initializeStore();
 
-    public native String getString(String key)
-            throws NotExistingKeyException, InvalidTypeException;
-    public native void setString(String key, String value);
+    public native void finalizeStore();
 
-    public native Color getColor(String key)
+    /*
+     * Getter/setters on primitives and objects.
+     */
+    public native boolean getBoolean(String pKey)
             throws NotExistingKeyException, InvalidTypeException;
-    public native void setColor(String key, Color value);
+    public native void setBoolean(String pKey, boolean pBool);
+
+    public native byte getByte(String pKey)
+            throws NotExistingKeyException, InvalidTypeException;
+    public native void setByte(String pKey, byte pByte);
+
+    public native char getChar(String pKey)
+            throws NotExistingKeyException, InvalidTypeException;
+    public native void setChar(String pKey, char pChar);
+
+    public native double getDouble(String pKey)
+            throws NotExistingKeyException, InvalidTypeException;
+    public native void setDouble(String pKey, double pDouble);
+
+    public native float getFloat(String pKey)
+            throws NotExistingKeyException, InvalidTypeException;
+    public native void setFloat(String pKey, float pFloat);
+
+    public native int getInteger(String pKey)
+            throws NotExistingKeyException, InvalidTypeException;
+    public native void setInteger(String pKey, int pInt);
+
+    public native long getLong(String pKey)
+            throws NotExistingKeyException, InvalidTypeException;
+    public native void setLong(String pKey, long pLong);
+
+    public native short getShort(String pKey)
+            throws NotExistingKeyException, InvalidTypeException;
+    public native void setShort(String pKey, short pShort);
+
+    public native String getString(String pKey)
+            throws NotExistingKeyException, InvalidTypeException;
+    public native void setString(String pKey, String pString);
+
+    public native Color getColor(String pKey)
+            throws NotExistingKeyException, InvalidTypeException;
+    public native void setColor(String pKey, Color pColor);
+
+
+    /*
+     * Getter/setter on arrays.
+     */
+    public native boolean[] getBooleanArray(String pKey)
+            throws NotExistingKeyException;
+    public native void setBooleanArray(String pKey,
+                                       boolean[] pBoolArray);
+
+    public native byte[] getByteArray(String pKey)
+            throws NotExistingKeyException;
+    public native void setByteArray(String pKey, byte[] pByteArray);
+
+    public native char[] getCharArray(String pKey)
+            throws NotExistingKeyException;
+    public native void setCharArray(String pKey, char[] pCharArray);
+
+    public native double[] getDoubleArray(String pKey)
+            throws NotExistingKeyException;
+    public native void setDoubleArray(String pKey,
+                                      double[] pDoubleArray);
+
+    public native float[] getFloatArray(String pKey)
+            throws NotExistingKeyException;
+    public native void setFloatArray(String pKey,
+                                     float[] pFloatArray);
 
     public native int[] getIntegerArray(String pKey)
-        throws NotExistingKeyException;
-    public native void setIntegerArray(String pKey, int[] pIntArray);
+            throws NotExistingKeyException;
+    public native void setIntegerArray(String pKey,
+                                       int[] pIntArray);
+
+    public native long[] getLongArray(String pKey)
+            throws NotExistingKeyException;
+    public native void setLongArray(String pKey, long[] pLongArray);
+
+    public native short[] getShortArray(String pKey)
+            throws NotExistingKeyException;
+    public native void setShortArray(String pKey,
+                                     short[] pShortArray);
+
+    public native String[] getStringArray(String pKey)
+            throws NotExistingKeyException;
+    public native void setStringArray(String pKey,
+                                      String[] pStringArray);
 
     public native Color[] getColorArray(String pKey)
-        throws NotExistingKeyException;
-    public native void setColorArray(String pKey, Color[] pColorArray);
+            throws NotExistingKeyException;
+    public native void setColorArray(String pKey,
+                                     Color[] pColorArray);
 }

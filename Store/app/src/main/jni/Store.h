@@ -7,19 +7,51 @@
 #define STORE_MAX_CAPACITY	2
 
 typedef  enum{
-	StoreType_Integer,
-	StoreType_String,
-	StoreType_Color,
-	StoreType_IntegerArray,
-	StoreType_ColorArray
+	StoreType_Boolean,
+	StoreType_Byte,
+	StoreType_Char,
+    StoreType_Double,
+    StoreType_Float,
+    StoreType_Integer,
+    StoreType_Long,
+    StoreType_Short,
+    StoreType_String,
+    StoreType_Color,
+
+    StoreType_BooleanArray,
+    StoreType_ByteArray,
+    StoreType_CharArray,
+    StoreType_DoubleArray,
+    StoreType_FloatArray,
+    StoreType_IntegerArray,
+    StoreType_LongArray,
+    StoreType_ShortArray,
+    StoreType_StringArray,
+    StoreType_ColorArray
 }StoreType;
 
 typedef union{
-	int32_t     mInteger;
-	char*	    mString;
-	jobject     mColor;
-	int32_t*    mIntegerArray;
-	jobject*    mColorArray;
+	uint8_t  mBoolean;
+    int8_t   mByte;
+    uint16_t mChar;
+    double   mDouble;
+    float    mFloat;
+    int32_t  mInteger;
+    int64_t  mLong;
+    int16_t  mShort;
+    char*    mString;
+    jobject  mColor;
+
+    uint8_t*  mBooleanArray;
+    int8_t*   mByteArray;
+    uint16_t* mCharArray;
+    double*   mDoubleArray;
+    float*    mFloatArray;
+    int32_t*  mIntegerArray;
+    int64_t*  mLongArray;
+    int16_t*  mShortArray;
+    char**    mStringArray;
+    jobject*  mColorArray;
 }StoreValue;
 
 typedef struct{
