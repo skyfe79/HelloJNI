@@ -10,26 +10,26 @@
 
 #define LOG_TAG "EglSample"
 
-static GLint vertices[][3] = {
-    { -0x10000, -0x10000, -0x10000 },
-    {  0x10000, -0x10000, -0x10000 },
-    {  0x10000,  0x10000, -0x10000 },
-    { -0x10000,  0x10000, -0x10000 },
-    { -0x10000, -0x10000,  0x10000 },
-    {  0x10000, -0x10000,  0x10000 },
-    {  0x10000,  0x10000,  0x10000 },
-    { -0x10000,  0x10000,  0x10000 }
+static GLfloat vertices[][3] = {
+    { -0.5f, -0.5f, -0.5f },
+    {  0.5f, -0.5f, -0.5f },
+    {  0.5f,  0.5f, -0.5f },
+    { -0.5f,  0.5f, -0.5f },
+    { -0.5f, -0.5f,  0.5f },
+    {  0.5f, -0.5f,  0.5f },
+    {  0.5f,  0.5f,  0.5f },
+    { -0.5f,  0.5f,  0.5f }
 };
 
-static GLint colors[][4] = {
-    { 0x00000, 0x00000, 0x00000, 0x10000 },
-    { 0x10000, 0x00000, 0x00000, 0x10000 },
-    { 0x10000, 0x10000, 0x00000, 0x10000 },
-    { 0x00000, 0x10000, 0x00000, 0x10000 },
-    { 0x00000, 0x00000, 0x10000, 0x10000 },
-    { 0x10000, 0x00000, 0x10000, 0x10000 },
-    { 0x10000, 0x10000, 0x10000, 0x10000 },
-    { 0x00000, 0x10000, 0x10000, 0x10000 }
+static GLfloat colors[][4] = {
+    { 0, 0, 0, 1 },
+    { 1, 0, 0, 1 },
+    { 1, 1, 0, 1 },
+    { 0, 1, 0, 1 },
+    { 0, 0, 1, 1 },
+    { 1, 0, 1, 1 },
+    { 1, 1, 1, 1 },
+    { 0, 1, 1, 1 }
 };
 
 GLubyte indices[] = {
@@ -247,10 +247,13 @@ void Renderer::drawFrame()
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
 
-    glFrontFace(GL_CW);
-    glVertexPointer(3, GL_FIXED, 0, vertices);
-    glColorPointer(4, GL_FIXED, 0, colors);
+    glFrontFace(GL_CCW);
+    glVertexPointer(3, GL_FLOAT, 0, vertices);
+    glColorPointer(4, GL_FLOAT, 0, colors);
     glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_BYTE, indices);
+
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_COLOR_ARRAY);
 
     _angle += 1.2f;
 }
